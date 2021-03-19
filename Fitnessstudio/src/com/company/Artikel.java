@@ -1,5 +1,9 @@
 package com.company;
 
+/**
+ * Die Artikel Klasse erstellt ein
+ * Abbild eines Artikels
+ */
 public class Artikel {
 
     private int leistungsid;

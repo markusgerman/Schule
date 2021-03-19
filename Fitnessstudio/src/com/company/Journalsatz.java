@@ -1,8 +1,11 @@
 package com.company;
 
 import java.time.LocalDate;
-import java.util.HashMap;
 
+/**
+ * Die Journalsatz Klasse ist ein
+ * Abbild eines Journales
+ */
 public class Journalsatz {
 
     private LocalDate datum;

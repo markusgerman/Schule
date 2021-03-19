@@ -1,7 +1,9 @@
 package com.company;
 
-import java.util.HashMap;
-
+/**
+ * Die Kunde Klasse erstellt ist ein
+ * Abbild eines Kunden
+ */
 public class Kunde {
     private String kundenummer;
 

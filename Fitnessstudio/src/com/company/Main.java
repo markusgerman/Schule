@@ -2,9 +2,12 @@ package com.company;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
+/**
+ * Paul, Marvin, Markus
+ * 19.03.2021
+ * Fitnesstudio
+ */
 public class Main {
-
 
     public static void main(String[] args)  {
         // erstellt eine Rechnung aus den Beispieldaten der Abrechnungsaufgabe IHK

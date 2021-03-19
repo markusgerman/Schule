@@ -1,19 +1,24 @@
 package com.company;
 
-import java.lang.reflect.Array;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+/**
+ * Die Klasse Abrechnung ist für die Erstellung
+ * einer Abrechnung
+ */
 public class Abrechnung {
 
     public ArrayList<Journalsatz> daten = new ArrayList<>();
-
 
     public List getDaten() {
         return this.daten;
     }
 
+    /**
+     * Erstellt eine Rechnung
+     * auf Basis der Klassenliste und gibt
+     * diese aus.
+     */
     public void erstelleRechnung() {
         String knummer = null;
         Journalsatz js = null;
