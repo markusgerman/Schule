@@ -8,7 +8,7 @@ import java.util.*;
  */
 public class Abrechnung {
 
-    public ArrayList<Journalsatz> daten = new ArrayList<>();
+    private ArrayList<Journalsatz> daten = new ArrayList<>();
 
     public List getDaten() {
         return this.daten;
