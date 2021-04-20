@@ -2,10 +2,13 @@
 name: 'Requirement '
 about: Anforderung an das Projekt
 title: ''
-labels: enhancement
+labels: Requirement
 assignees: ''
 
 ---
 
+**Nicht-funktionale Anforderung**
+Bsp.: Das	System muss mit Java entwickelt werden und muss in der Sun Java VM 1.5 laufen	
+
 **Funktionale Anforderung**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+Bsp.: Das System muss Ausleihgegenstände in den Bestand aufnehmen können.
