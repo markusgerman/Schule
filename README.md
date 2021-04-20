@@ -8,8 +8,8 @@ Projekt "Fitnesstudio - Abrechnung"
 [Markus G.](https://github.com/markusgerman) myconsult GmbH
 
 
-##Idee
-Aufgaben (in Anlehnung an den Softwarelebenszyklus):
+## Idee
+# Aufgaben (in Anlehnung an den Softwarelebenszyklus):
  Erstellung eines gemeinsamen Datenmodells
  Anforderungsdefinition Datenbank:
 Eine Gruppe übernimmt als zentrale Projektgruppe die Implementierung und Administration der
