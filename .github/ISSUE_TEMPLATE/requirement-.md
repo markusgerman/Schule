@@ -1,7 +1,7 @@
 ---
 name: 'Requirement '
 about: Anforderung an das Projekt
-title: ''
+title: ABR-[NR]
 labels: Requirement
 assignees: ''
 
