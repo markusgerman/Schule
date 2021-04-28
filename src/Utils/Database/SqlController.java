@@ -2,6 +2,7 @@ package Utils.Database;
 
 import java.sql.*;
 import java.util.Properties;
+import java.util.Stack;
 
 public class SqlController {
 
@@ -11,7 +12,27 @@ public class SqlController {
     private final String user = "fs194_gruppe5";
     private final String password = "P@ssw0rd";
 
+    /**
+     * Initialisiert die Datenbankverbindung.
+     * @throws SQLException
+     */
     public SqlController() throws SQLException {
         conn = DriverManager.getConnection(connectionstring, user, password);
     }
+
+    /**
+     * Gibt das ResultSet der übergebenen Abfrage zurück.
+     * @param query
+     * @return
+     * @throws SQLException
+     */
+    public ResultSet querybuilder(String query) throws SQLException {
+
+        Statement st;
+        st = conn.createStatement();
+        ResultSet rs = st.executeQuery(query);
+
+        return rs;
+    }
+
 }
