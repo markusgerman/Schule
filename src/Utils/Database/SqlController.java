@@ -13,9 +13,5 @@ public class SqlController {
 
     public SqlController() throws SQLException {
         conn = DriverManager.getConnection(connectionstring, user, password);
-        System.out.println("test");
-
-
-
     }
 }
