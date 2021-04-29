@@ -6,7 +6,6 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Router.DocumentRouterController">
@@ -52,17 +51,14 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <BorderPane fx:id="mainPane" layoutX="13.0" layoutY="24.0" prefHeight="375.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <left>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#handleDashboardButton" text="Dashboard" />
-                        <Button mnemonicParsing="false" onAction="#handleTarifverwaltungButton" text="Tarifverwaltung" />
-                        <Button mnemonicParsing="false" onAction="#handleFakturaButton" text="Faktura" />
-                     </children>
-                  </VBox>
-               </left>
-            </BorderPane>
+            <VBox alignment="CENTER" prefHeight="375.0" prefWidth="130.0" spacing="30.0" style="-fx-background-color: #6ea6da;">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleDashboardButton" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: #6ea6da;" text="Dashboard" />
+                  <Button mnemonicParsing="false" onAction="#handleTarifverwaltungButton" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #6ea6da;" text="Tarifverwaltung" />
+                  <Button mnemonicParsing="false" onAction="#handleFakturaButton" prefHeight="25.0" prefWidth="125.0" style="-fx-background-color: #6ea6da;" text="Faktura" />
+               </children>
+            </VBox>
+            <AnchorPane layoutX="129.0" prefHeight="375.0" prefWidth="510.0" />
          </children>
     </AnchorPane>
   </children>
