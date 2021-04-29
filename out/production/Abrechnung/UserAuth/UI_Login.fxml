@@ -12,5 +12,5 @@
    <Text layoutX="75.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Benutzername"/>
    <Text layoutX="104.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passwort"/>
    <Button layoutX="269.0" layoutY="277.0" mnemonicParsing="false" onAction="#test" text="Sign In"/>
-   <PasswordField layoutX="173.0" layoutY="223.0" promptText="Passwrort"/>
+   <PasswordField layoutX="173.0" layoutY="223.0" promptText="Passwort"/>
 </AnchorPane>
