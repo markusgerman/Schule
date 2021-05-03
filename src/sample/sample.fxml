@@ -55,8 +55,8 @@
             <VBox alignment="CENTER" prefHeight="375.0" prefWidth="130.0" spacing="30.0" style="-fx-background-color: #6ea6da;">
                <children>
                   <Button mnemonicParsing="false" onAction="#handleDashboardButton" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: #6ea6da;" text="Dashboard" />
-                  <Button mnemonicParsing="false" onAction="#handleTarifverwaltungButton" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #6ea6da;" text="Tarifverwaltung" />
-                  <Button mnemonicParsing="false" onAction="#handleFakturaButton" prefHeight="25.0" prefWidth="125.0" style="-fx-background-color: #6ea6da;" text="Faktura" />
+                  <Button mnemonicParsing="false" onAction="#handleTarifverwaltungButton" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: #6ea6da;" text="Tarifverwaltung" />
+                  <Button mnemonicParsing="false" onAction="#handleFakturaButton" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: #6ea6da;" text="Faktura" />
                </children>
             </VBox>
             <AnchorPane layoutX="129.0" prefHeight="375.0" prefWidth="510.0">
