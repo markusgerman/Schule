@@ -25,7 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="79109696-7a9a-4dc4-abaa-0631c951d942">
-        <schema name="fs194" object-types="index, table, sequence, column, view, dataset trigger, constraint, function" />
+        <schema name="fs194" object-types="table, function, view, dataset trigger, sequence, index, constraint, column" />
       </connection>
     </loaded-nodes>
   </component>
