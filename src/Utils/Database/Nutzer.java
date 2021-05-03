@@ -118,6 +118,22 @@ public class Nutzer extends DatabaseConnection implements ICrudable {
         return true;
     }
 
+    public int countAllUser() throws SQLException {
+
+        PreparedStatement stmt = conn.prepareStatement(
+                "SELECT * FROM fs194.nutzer;"
+        );
+
+
+        ResultSet rs = stmt.executeQuery();
+        int records = 0;
+        while (rs.next()) {
+            records = rs.getInt(1);
+        }
+        return records;
+
+    }
+
 
 
 }
