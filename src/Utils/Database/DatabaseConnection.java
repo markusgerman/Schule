@@ -11,7 +11,7 @@ public class DatabaseConnection {
 
     public Connection conn = null;
     public final String connectionstring = "jdbc:postgresql://157.90.5.140/fs194";
-    public final String user = "fs194_gruppe5";
+    public final String user = "fs194_gruppe7";
     public final String password = "P@ssw0rd";
 
     public DatabaseConnection() {
