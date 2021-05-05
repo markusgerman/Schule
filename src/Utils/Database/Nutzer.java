@@ -104,7 +104,7 @@ public class Nutzer extends DatabaseConnection implements ICrudable {
      */
     public boolean readAuthentication() throws SQLException {
         PreparedStatement stmt = conn.prepareStatement(
-                "SELECT * FROM fs194.nutzer where (nutzername = ?) and (passwort = ?);"
+                "SELECT * FROM fs194.nutzer where (nutzername = ?) and (passwort = ?) and (rollen_nr != 1);"
         );
 
         stmt.setString(1, nutzername);
@@ -116,6 +116,20 @@ public class Nutzer extends DatabaseConnection implements ICrudable {
             return false;
         }
         return true;
+    }
+
+    /**
+     * Gibt alle Datensätze der Nutzertabelle zurück.
+     * @throws SQLException
+     */
+    public ResultSet readFaktura() throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement(
+                "SELECT nutzer_nr, vorname, nachname, tarif_nr FROM fs194.nutzer where rollen_nr = 1;"
+        );
+
+        ResultSet rs = stmt.executeQuery();
+
+        return rs;
     }
 
     public int countAllUser() throws SQLException {
