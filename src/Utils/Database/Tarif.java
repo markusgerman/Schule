@@ -35,7 +35,7 @@ public class Tarif extends DatabaseConnection implements ICrudable {
      * @throws SQLException
      */
     @Override
-    public void read(int ID) throws SQLException {
+    public ResultSet read(int ID) throws SQLException {
         PreparedStatement stmt = conn.prepareStatement(
                 "SELECT * FROM fs194.tarife where tarif_nr=(?);"
         );
@@ -48,6 +48,8 @@ public class Tarif extends DatabaseConnection implements ICrudable {
         tarifnummer = rs.getInt("tarif_nr");
         bezeichnung = rs.getString("bezeichnung");
         preis = rs.getInt("preis");
+
+        return rs;
     }
 
     /**

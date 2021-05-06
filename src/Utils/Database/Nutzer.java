@@ -20,6 +20,7 @@ public class Nutzer extends DatabaseConnection implements ICrudable {
     public int rollen_nr;
     public int tarif_nr;
     public String vorname;
+    public Date letzte_abrechnung;
 
     /**
      * Erzeugt einen neuen Nutzer aus den Klassenattributen.
@@ -72,7 +73,7 @@ public class Nutzer extends DatabaseConnection implements ICrudable {
      * @throws SQLException
      */
     @Override
-    public void read(int ID) throws SQLException {
+    public ResultSet read(int ID) throws SQLException {
         PreparedStatement stmt = conn.prepareStatement(
                 "SELECT * FROM fs194.nutzer where nutzer_nr = ?;"
         );
@@ -94,7 +95,40 @@ public class Nutzer extends DatabaseConnection implements ICrudable {
         rollen_nr = rs.getInt("rollen_nr");
         tarif_nr = rs.getInt("tarif_nr");
         vorname = rs.getString("vorname");
+        letzte_abrechnung = rs.getDate("letzte_abrechnung");
 
+        return rs;
+    }
+
+    /**
+     * Ließt alle Datensaetze aus der Tabelle Nutzer in die Klassenattribute.
+     * @throws SQLException
+     */
+
+    public ResultSet readAllUser() throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement(
+                "SELECT * FROM fs194.nutzer;"
+        );
+
+
+        ResultSet rs = stmt.executeQuery();
+
+        rs.next();
+
+        nutzer_nr = rs.getString("nutzer_nr");
+        adresse = rs.getString("adresse");
+        mail = rs.getString("email");
+        geburtstag = rs.getDate("geburtstag");
+        nachname = rs.getString("nachname");
+        nutzername = rs.getString("nutzername");
+        passwort = rs.getString("passwort");
+        profilbild = rs.getObject("profilbild");
+        rollen_nr = rs.getInt("rollen_nr");
+        tarif_nr = rs.getInt("tarif_nr");
+        vorname = rs.getString("vorname");
+        letzte_abrechnung = rs.getDate("letzte_abrechnung");
+
+        return rs;
     }
 
     /**
@@ -124,7 +158,7 @@ public class Nutzer extends DatabaseConnection implements ICrudable {
      */
     public ResultSet readFaktura() throws SQLException {
         PreparedStatement stmt = conn.prepareStatement(
-                "Select n.nutzer_nr, n.vorname, n.nachname, n.tarif_nr, t.preis From fs194.nutzer n Join fs194.tarife t on n.tarif_nr = t.tarif_nr;"
+                "Select n.nutzer_nr, n.vorname, n.nachname, n.tarif_nr, n.letzte_abechnung, t.preis From fs194.nutzer n Join fs194.tarife t on n.tarif_nr = t.tarif_nr;"
         );
 
         ResultSet rs = stmt.executeQuery();
@@ -143,6 +177,38 @@ public class Nutzer extends DatabaseConnection implements ICrudable {
         int records = 0;
         while (rs.next()) {
             records = rs.getInt(1);
+        }
+        return records;
+
+    }
+
+    public int countAllMitarbeiter() throws SQLException {
+
+        PreparedStatement stmt = conn.prepareStatement(
+                "SELECT * FROM fs194.nutzer WHERE rollen_nr = 2 OR rollen_nr = 3;"
+        );
+
+
+        ResultSet rs = stmt.executeQuery();
+        int records = 0;
+        while (rs.next()) {
+            records ++;
+        }
+        return records;
+
+    }
+
+    public int countAllKunden() throws SQLException {
+
+        PreparedStatement stmt = conn.prepareStatement(
+                "SELECT * FROM fs194.nutzer WHERE rollen_nr != 2 AND rollen_nr != 3;"
+        );
+
+
+        ResultSet rs = stmt.executeQuery();
+        int records = 0;
+        while (rs.next()) {
+            records ++;
         }
         return records;
 
