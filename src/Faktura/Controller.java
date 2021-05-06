@@ -6,12 +6,16 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.util.Callback;
 
+import java.awt.*;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,6 +27,8 @@ public class Controller implements Initializable {
     public TableView tableView;
     private ObservableList<ObservableList> data;
 
+    @FXML private TableColumn<Nutzer, String> UserId;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -33,11 +39,12 @@ public class Controller implements Initializable {
         }
     }
 
-    public void FillGrid() throws SQLException {
+    private void FillGrid() throws SQLException {
 
         ResultSet rs = new Nutzer().readFaktura();
 
         data = FXCollections.observableArrayList();
+
 
         for(int i=0 ; i<rs.getMetaData().getColumnCount(); i++){
             final int j = i;
@@ -49,13 +56,12 @@ public class Controller implements Initializable {
 
         }
 
-        TableColumn rechnungssumme = new TableColumn("Rechnungssumme Netto");
-        tableView.getColumns().add(rechnungssumme);
-
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
 
         while(rs.next()){
             Nutzer n = new Nutzer();
+            Tarif t = new Tarif();
             ObservableList<String> row = FXCollections.observableArrayList();
             for(int i=1 ; i<=rs.getMetaData().getColumnCount(); i++){
 
@@ -63,21 +69,20 @@ public class Controller implements Initializable {
                 n.vorname = rs.getString("vorname");
                 n.nachname = rs.getString("nachname");
                 n.tarif_nr = rs.getInt("tarif_nr");
+                t.preis = rs.getDouble("preis");
 
                 row.add(n.nutzer_nr);
                 row.add(n.vorname);
                 row.add(n.nachname);
                 row.add(Integer.toString(n.tarif_nr));
+                row.add(Double.toString(t.preis));
 
             }
             data.add(row);
         }
-
         tableView.setItems(data);
 
 
 
-
     }
-
 }
