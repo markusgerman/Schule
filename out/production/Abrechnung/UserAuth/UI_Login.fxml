@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,10 +10,11 @@
 
 <VBox fx:id="vBox" prefHeight="750.0" prefWidth="1000" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserAuth.Controller">
    <AnchorPane prefHeight="400.0" prefWidth="478.0">
-      <Text layoutX="298.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Benutzername" />
+      <Text layoutX="164.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Benutzername:" />
       <TextField fx:id="username" layoutX="265.0" layoutY="146.0" prefHeight="5.0" prefWidth="149.0" />
-      <Text layoutX="313.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passwort" />
-      <PasswordField fx:id="password" layoutX="265.0" layoutY="216.0" />
-      <Button layoutX="265.0" layoutY="256.0" mnemonicParsing="false" onAction="#LoginController" prefHeight="25.0" prefWidth="149.0" text="Einloggen" />
+      <Text layoutX="164.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passwort:" />
+      <PasswordField fx:id="password" layoutX="265.0" layoutY="188.0" />
+      <Button layoutX="265.0" layoutY="270.0" mnemonicParsing="false" onAction="#LoginController" prefHeight="25.0" prefWidth="149.0" text="Einloggen" />
+      <Label fx:id="error" layoutX="265.0" layoutY="231.0" text="Benutzername oder Passwort falsch!" textFill="RED" visible="false" />
    </AnchorPane>
 </VBox>

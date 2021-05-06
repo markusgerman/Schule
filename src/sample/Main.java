@@ -15,7 +15,7 @@ public class Main extends Application {
         //Parent root = FXMLLoader.load(getClass().getResource("../UserAuth/UI_Login.fxml"));
         Parent root = FXMLLoader.load(getClass().getResource("../UserAuth/UI_Login.fxml"));
 
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Abrechnungs- und Tarifverwaltungmodul");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
