@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
@@ -17,10 +18,13 @@ import javafx.util.Callback;
 import javafx.event.ActionEvent;
 
 import javax.swing.*;
+import javax.xml.transform.Result;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -75,7 +79,6 @@ public class Controller implements Initializable {
                 n.letzte_abrechnung = rs.getDate(("letzte_abrechnung"));
                 t.preis = rs.getDouble("preis");
 
-
                 row.add(n.nutzer_nr);
                 row.add(n.vorname);
                 row.add(n.nachname);
@@ -90,7 +93,6 @@ public class Controller implements Initializable {
 
     }
 
-
     public void rechnungenAusgebenController(ActionEvent actionEvent) throws SQLException, FileNotFoundException {
 
         Faktura faktura = new Faktura();
@@ -102,12 +104,51 @@ public class Controller implements Initializable {
         chooser.setToolTipText("Bitte wählen Sie einen Ordner aus.");
         chooser.showSaveDialog(null);
 
+        Nutzer n = new Nutzer();
+        n.update();
+
+
         try{
             faktura.writeAll(chooser.getSelectedFile());
         }
         catch (Exception e){
 
         }
+
+    }
+
+
+    public void rechnungEinzeltAusgeben(ActionEvent actionEvent) throws SQLException {
+
+
+       String l = tableView.getSelectionModel().getSelectedItems().get(0).toString();
+
+       String value = "";
+        for (int i = 1; i < l.length(); i++) {
+            if(l.charAt(i) == ','){
+                break;
+            }
+            value += l.charAt(i);
+        }
+
+        Nutzer n = new Nutzer();
+
+        ResultSet r = n.readFaktura(Integer.parseInt(value));
+
+        JFileChooser chooser = new JFileChooser();
+
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+
+        chooser.setToolTipText("Bitte wählen Sie einen Ordner aus.");
+        chooser.showSaveDialog(null);
+
+        Faktura rechnung = new Faktura();
+
+        rechnung.write(chooser.getSelectedFile(), r);
+
+
+        n.update(Integer.parseInt(value));
+
 
     }
 }

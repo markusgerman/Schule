@@ -64,9 +64,22 @@ public class Nutzer extends DatabaseConnection implements ICrudable {
      */
     @Override
     public void update() throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement(
+                "UPDATE fs194.nutzer set letzte_abrechnung = CURRENT_DATE;"
+        );
 
+        stmt.executeUpdate();
     }
 
+    public void update(int id) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement(
+                "UPDATE fs194.nutzer set letzte_abrechnung = CURRENT_DATE where nutzer_nr = ?;"
+        );
+
+        stmt.setInt(1, id);
+
+        stmt.executeUpdate();
+    }
     /**
      * Ließt den Datensatz des übergebenen Parameters in die Klassenattribute.
      * @param ID
@@ -162,6 +175,20 @@ public class Nutzer extends DatabaseConnection implements ICrudable {
         );
 
         ResultSet rs = stmt.executeQuery();
+
+        return rs;
+    }
+
+    public ResultSet readFaktura(int id) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement(
+                "Select n.nutzer_nr, n.vorname, n.nachname, n.tarif_nr, n.letzte_abrechnung, t.preis From fs194.nutzer n Join fs194.tarife t on n.tarif_nr = t.tarif_nr where n.nutzer_nr = ?;"
+        );
+
+        stmt.setInt(1, id);
+
+        ResultSet rs = stmt.executeQuery();
+
+        rs.next();
 
         return rs;
     }
