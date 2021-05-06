@@ -214,6 +214,22 @@ public class Nutzer extends DatabaseConnection implements ICrudable {
 
     }
 
+    public int countAllKundenAbrechenbar() throws SQLException {
+
+        PreparedStatement stmt = conn.prepareStatement(
+                "SELECT * FROM fs194.nutzer WHERE rollen_nr != 2 AND rollen_nr != 3 and (letzte_abrechnung >= date_trunc('month', current_date-interval '1' month) or letzte_abrechnung = NULL);"
+        );
+
+
+        ResultSet rs = stmt.executeQuery();
+        int records = 0;
+        while (rs.next()) {
+            records ++;
+        }
+        return records;
+
+    }
+
 
 
 }
