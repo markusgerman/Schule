@@ -99,9 +99,15 @@ public class Controller implements Initializable {
 
         chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 
+        chooser.setToolTipText("Bitte wählen Sie einen Ordner aus.");
         chooser.showSaveDialog(null);
 
-        faktura.writeAll(chooser.getSelectedFile());
+        try{
+            faktura.writeAll(chooser.getSelectedFile());
+        }
+        catch (Exception e){
+
+        }
 
     }
 }
