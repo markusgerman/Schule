@@ -36,8 +36,9 @@ public class Controller {
 
                 Stage primaryStage = new Stage();
                 primaryStage.setTitle("Abrechnungs- und Tarifverwaltungmodul");
-                primaryStage.setScene(new Scene(root));
+                primaryStage.setScene(new Scene(root,900,575));
                 primaryStage.show();
+                primaryStage.setResizable(false);
                 ((Node)(actionEvent.getSource())).getScene().getWindow().hide();
             }
             if (loginNutzer.readAuthentication() == true){

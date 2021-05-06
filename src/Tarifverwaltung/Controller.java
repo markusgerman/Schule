@@ -127,5 +127,6 @@ public class Controller implements Initializable {
             }
             tableView.getItems().add(new DataInput(n.nutzer_nr, n.vorname, n.nachname, t.preis, n.tarif_nr, n.tarif_nr));
         }
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 }
