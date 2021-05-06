@@ -82,5 +82,15 @@ public class Tarif extends DatabaseConnection implements ICrudable {
         stmt.executeUpdate();
     }
 
+    public ResultSet readTarifVerwaltung() throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement(
+                "Select n.nutzer_nr, n.vorname, n.nachname, n.tarif_nr, t.preis  From fs194.nutzer n Join fs194.tarife t on n.tarif_nr = t.tarif_nr;"
+        );
+
+        ResultSet rs = stmt.executeQuery();
+
+        return rs;
+    }
+
 
 }

@@ -2,6 +2,7 @@ package Utils.Database;
 
 import Utils.Interfaces.ICrudable;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -131,6 +132,19 @@ public class Nutzer extends DatabaseConnection implements ICrudable {
 
         return rs;
     }
+
+    public void updateTarif(String tarifNummer, String nutzerNummer) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement(
+                "UPDATE fs194.nutzer set tarif_nr = ? where nutzer_nr = ?;"
+        );
+
+        stmt.setInt(1, Integer.parseInt(tarifNummer));
+        stmt.setInt(2, Integer.parseInt(nutzerNummer));
+                //setString(2, nutzerNummer);
+
+        stmt.executeUpdate();
+    }
+
 
     public int countAllUser() throws SQLException {
 
