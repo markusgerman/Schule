@@ -72,12 +72,15 @@ public class Controller implements Initializable {
                 n.vorname = rs.getString("vorname");
                 n.nachname = rs.getString("nachname");
                 n.tarif_nr = rs.getInt("tarif_nr");
+                n.letzte_abrechnung = rs.getDate(("letzte_abrechnung"));
                 t.preis = rs.getDouble("preis");
+
 
                 row.add(n.nutzer_nr);
                 row.add(n.vorname);
                 row.add(n.nachname);
                 row.add(Integer.toString(n.tarif_nr));
+                row.add(String.valueOf(n.letzte_abrechnung));
                 row.add(Double.toString(t.preis));
 
             }

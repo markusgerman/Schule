@@ -158,7 +158,7 @@ public class Nutzer extends DatabaseConnection implements ICrudable {
      */
     public ResultSet readFaktura() throws SQLException {
         PreparedStatement stmt = conn.prepareStatement(
-                "Select n.nutzer_nr, n.vorname, n.nachname, n.tarif_nr, n.letzte_abechnung, t.preis From fs194.nutzer n Join fs194.tarife t on n.tarif_nr = t.tarif_nr;"
+                "Select n.nutzer_nr, n.vorname, n.nachname, n.tarif_nr, n.letzte_abrechnung, t.preis From fs194.nutzer n Join fs194.tarife t on n.tarif_nr = t.tarif_nr;"
         );
 
         ResultSet rs = stmt.executeQuery();

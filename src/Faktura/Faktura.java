@@ -42,7 +42,7 @@ public class Faktura {
                 out.newLine();
                 out.write("Wir entziehen Ihnen folgenden Betrag von Ihrem Konto: ");
                 out.newLine();
-                out.write("Betrag: " + rs.getInt("preis") + "Euro");
+                out.write("Betrag: " + rs.getInt("preis") + " Euro");
                 out.newLine();
 
                 out.close();
