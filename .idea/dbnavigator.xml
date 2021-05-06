@@ -8,6 +8,7 @@
   <component name="DBNavigator.Project.DataExportManager">
     <export-instructions>
       <create-header value="true" />
+      <friendly-headers value="false" />
       <quote-values-containing-separator value="true" />
       <quote-all-values value="false" />
       <value-separator value="" />
@@ -25,11 +26,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="79109696-7a9a-4dc4-abaa-0631c951d942">
-        <schema name="fs194" object-types="index, sequence, constraint, column, dataset trigger, view, table, function" />
-        <schema name="information_schema" object-types="sequence, view, table, function" />
-        <schema name="pg_catalog" object-types="sequence, view, table, function" />
-        <schema name="pg_toast" object-types="sequence, view, table, function" />
-        <schema name="public" object-types="sequence, view, table, function" />
+        <schema name="fs194" object-types="function, view, dataset trigger, sequence, index, constraint, column, table" />
       </connection>
     </loaded-nodes>
   </component>
@@ -213,8 +210,6 @@
           <object-type name="TABLE" enabled="true" />
           <object-type name="VIEW" enabled="true" />
           <object-type name="MATERIALIZED VIEW" enabled="true" />
-          <object-type name="NESTED TABLE" enabled="false" />
-          <object-type name="COLUMN" enabled="false" />
           <object-type name="INDEX" enabled="true" />
           <object-type name="CONSTRAINT" enabled="true" />
           <object-type name="DATASET TRIGGER" enabled="true" />
@@ -225,8 +220,6 @@
           <object-type name="FUNCTION" enabled="true" />
           <object-type name="PACKAGE" enabled="true" />
           <object-type name="TYPE" enabled="true" />
-          <object-type name="TYPE ATTRIBUTE" enabled="false" />
-          <object-type name="ARGUMENT" enabled="false" />
           <object-type name="DIMENSION" enabled="false" />
           <object-type name="CLUSTER" enabled="false" />
           <object-type name="DBLINK" enabled="true" />
