@@ -12,7 +12,8 @@
              <TableView fx:id="tableView" prefHeight="425.0" prefWidth="619.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="143.0" AnchorPane.topAnchor="0.0">
 
              </TableView>
-            <Button fx:id="btnPrintAll" onAction="#rechnungenAusgebenController" layoutX="626.0" layoutY="73.0" mnemonicParsing="false" text="Rechnungen drucken" />
+            <Button fx:id="btnPrintAll" layoutX="626.0" layoutY="70.0" mnemonicParsing="false" onAction="#rechnungenAusgebenController" text="Rechnungen drucken" />
+            <Button fx:id="btnGetRow" layoutX="626.0" layoutY="113.0" mnemonicParsing="false" onAction="#rechnungEinzeltAusgeben" prefHeight="25.0" prefWidth="129.0" text="Wert drucken" />
          </children>
     </AnchorPane>
   </children>
