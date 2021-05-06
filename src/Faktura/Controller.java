@@ -8,14 +8,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.CheckBox;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.util.Callback;
 
-import java.awt.*;
+import javafx.event.ActionEvent;
+
+import javax.swing.*;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,6 +27,9 @@ public class Controller implements Initializable {
 
 
     public TableView tableView;
+
+    public Button btnPrintAll;
+
     private ObservableList<ObservableList> data;
 
     @FXML private TableColumn<Nutzer, String> UserId;
@@ -45,7 +50,6 @@ public class Controller implements Initializable {
 
         data = FXCollections.observableArrayList();
 
-
         for(int i=0 ; i<rs.getMetaData().getColumnCount(); i++){
             final int j = i;
             TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i+1));
@@ -53,7 +57,6 @@ public class Controller implements Initializable {
                     new SimpleStringProperty(param.getValue().get(j).toString()));
 
             tableView.getColumns().addAll(col);
-
         }
 
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
@@ -82,7 +85,20 @@ public class Controller implements Initializable {
         }
         tableView.setItems(data);
 
+    }
 
+
+    public void rechnungenAusgebenController(ActionEvent actionEvent) throws SQLException, FileNotFoundException {
+
+        Faktura faktura = new Faktura();
+
+        JFileChooser chooser = new JFileChooser();
+
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+
+        chooser.showSaveDialog(null);
+
+        faktura.writeAll(chooser.getSelectedFile());
 
     }
 }

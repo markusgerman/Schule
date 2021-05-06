@@ -25,7 +25,11 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="79109696-7a9a-4dc4-abaa-0631c951d942">
-        <schema name="fs194" object-types="sequence, index, constraint, dataset trigger, table, function, column, view" />
+        <schema name="fs194" object-types="index, sequence, constraint, column, dataset trigger, view, table, function" />
+        <schema name="information_schema" object-types="sequence, view, table, function" />
+        <schema name="pg_catalog" object-types="sequence, view, table, function" />
+        <schema name="pg_toast" object-types="sequence, view, table, function" />
+        <schema name="public" object-types="sequence, view, table, function" />
       </connection>
     </loaded-nodes>
   </component>

@@ -28,8 +28,6 @@ public class Controller {
         loginNutzer.nutzername = username.getText();
         loginNutzer.passwort = password.getText();
 
-
-
         try {
             if(Main.debug){
                 VBox pane = FXMLLoader.load(getClass().getResource("../sample/sample.fxml"));
