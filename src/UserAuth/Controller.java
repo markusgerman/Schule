@@ -4,11 +4,12 @@ package UserAuth;
 import Utils.Database.Nutzer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import sample.Main;
-
+import javax.xml.soap.Text;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -17,6 +18,7 @@ public class Controller {
     public TextField username;
     public PasswordField password;
     public VBox vBox;
+    public Label error;
 
     public void LoginController(ActionEvent actionEvent){
         Nutzer loginNutzer = new Nutzer();
@@ -35,6 +37,7 @@ public class Controller {
             }
             else {
                 System.out.println("falscher Benutzer oder Passwort");
+                error.setVisible(true);
                 //Hier muss eine entsprechende Fehlermeldung ausgegeben werden.
             }
         } catch (SQLException | IOException throwables) {
