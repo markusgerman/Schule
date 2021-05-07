@@ -30,9 +30,11 @@ public class  Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            mitarbeiterAnz.setText(Integer.toString(new Nutzer().countAllMitarbeiter()));
-            abrechenbarAnz.setText(Integer.toString(new Nutzer().countAllKundenAbrechenbar()));
-            kundenAnz.setText(Integer.toString(new Nutzer().countAllKunden()));
+            Nutzer n = new Nutzer();
+
+            mitarbeiterAnz.setText(Integer.toString(n.countAllMitarbeiter()));
+            abrechenbarAnz.setText(Integer.toString(n.countAllKundenAbrechenbar()));
+            kundenAnz.setText(Integer.toString(n.countAllKunden()));
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

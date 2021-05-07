@@ -1,5 +1,6 @@
 package Tarifverwaltung;
 
+import Router.DocumentRouterController;
 import Utils.Database.Nutzer;
 import Utils.Database.Tarif;
 import javafx.beans.binding.Bindings;
@@ -17,26 +18,31 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 
 import javax.swing.*;
+import java.io.InputStream;
+import java.io.Reader;
+import java.math.BigDecimal;
 import java.net.URL;
-import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.Calendar;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
     public TableView tableView;
-
+    public boolean columnsCreated = false;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            FillGrid();
+            fillGrid();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
-
-    public void FillGrid() throws SQLException {
+    public void refreshTable() {
+        tableView.refresh();
+    }
+    public void fillGrid() throws SQLException {
 
         ResultSet rs = new Tarif().readTarifVerwaltung();
 
@@ -89,11 +95,16 @@ public class Controller implements Initializable {
                                         Nutzer nutzer = new Nutzer();
                                         try {
                                             nutzer.updateTarif(comboBox.valueProperty().getValue() , dataInput.getNutzer_nr());
-                                            FillGrid();
+
+                                            //refreshes the table
+                                            tableView.getItems().removeAll(tableView);
+                                            tableView.getItems().clear();
+                                            refreshTable();
+                                            columnsCreated = true;
+                                            fillGrid();
                                         } catch (SQLException throwables) {
                                             throwables.printStackTrace();
                                         }
-                                        System.out.println(comboBox.valueProperty().getValue() + "   " + dataInput.getNachname());
                                     });
                                     setGraphic(comboBox);
                                     setText(null);
@@ -106,24 +117,24 @@ public class Controller implements Initializable {
 
         actionCol.setCellFactory(cellFactory);
 
-       //actionCol.setCellValueFactory(i -> {
-       //    final StringProperty value = new SimpleStringProperty((String) i.getValue().getOption());
-       //    return Bindings.createObjectBinding(() -> value);
-       //});
+        if (columnsCreated == false) {
+            tableView.getColumns().addAll(column1, column2, column3, column4, column5, actionCol);
+        }
+        setData(rs);
+    }
 
+    public void setData(ResultSet resultset)throws SQLException {
 
-        tableView.getColumns().addAll(column1,column2,column3,column4,column5,actionCol);
-
-        while(rs.next()){
+        while(resultset.next()){
             Tarif t = new Tarif();
             Nutzer n = new Nutzer();
 
-            for(int i=1 ; i<=rs.getMetaData().getColumnCount(); i++){
-                n.nutzer_nr = rs.getString("nutzer_nr");
-                n.vorname = rs.getString("vorname");
-                n.nachname = rs.getString("nachname");
-                n.tarif_nr = rs.getInt("tarif_nr");
-                t.preis = rs.getDouble("preis");
+            for(int i=1 ; i<=resultset.getMetaData().getColumnCount(); i++){
+                n.nutzer_nr = resultset.getString("nutzer_nr");
+                n.vorname = resultset.getString("vorname");
+                n.nachname = resultset.getString("nachname");
+                n.tarif_nr = resultset.getInt("tarif_nr");
+                t.preis = resultset.getDouble("preis");
             }
             tableView.getItems().add(new DataInput(n.nutzer_nr, n.vorname, n.nachname, t.preis, n.tarif_nr, n.tarif_nr));
         }

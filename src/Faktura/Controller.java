@@ -8,11 +8,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TableColumn;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.TableColumn.CellDataFeatures;
-import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 
 import javafx.event.ActionEvent;
@@ -26,6 +26,12 @@ import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class Controller implements Initializable {
 
@@ -50,6 +56,7 @@ public class Controller implements Initializable {
 
     private void FillGrid() throws SQLException {
 
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         ResultSet rs = new Nutzer().readFaktura();
 
         data = FXCollections.observableArrayList();
@@ -63,14 +70,12 @@ public class Controller implements Initializable {
             tableView.getColumns().addAll(col);
         }
 
-        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-
 
         while(rs.next()){
             Nutzer n = new Nutzer();
             Tarif t = new Tarif();
             ObservableList<String> row = FXCollections.observableArrayList();
-            for(int i=1 ; i<=rs.getMetaData().getColumnCount(); i++){
+            for(int i=0 ; i<=rs.getMetaData().getColumnCount(); i++){
 
                 n.nutzer_nr = rs.getString("nutzer_nr");
                 n.vorname = rs.getString("vorname");

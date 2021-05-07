@@ -17,6 +17,7 @@ public class Main extends Application {
 
         primaryStage.setTitle("Abrechnungs- und Tarifverwaltungmodul");
         primaryStage.setScene(new Scene(root));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 

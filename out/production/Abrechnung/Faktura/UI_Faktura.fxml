@@ -5,16 +5,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="425.0" prefWidth="762.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Faktura.Controller">
-  <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="522.0" prefWidth="804.0" VBox.vgrow="ALWAYS">
-         <children>
-             <TableView fx:id="tableView" prefHeight="425.0" prefWidth="619.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="143.0" AnchorPane.topAnchor="0.0">
 
-             </TableView>
-            <Button fx:id="btnPrintAll" layoutX="626.0" layoutY="70.0" mnemonicParsing="false" onAction="#rechnungenAusgebenController" text="Rechnungen drucken" />
-            <Button fx:id="btnGetRow" layoutX="626.0" layoutY="113.0" mnemonicParsing="false" onAction="#rechnungEinzeltAusgeben" prefHeight="25.0" prefWidth="129.0" text="Wert drucken" />
-         </children>
+<AnchorPane  prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Faktura.Controller">
+<children>
+    <VBox VBox.vgrow="ALWAYS" alignment="TOP_RIGHT" fillWidth="false" prefHeight="800" prefWidth="700.0" spacing="5.0" >
+
+        <children>
+            <TableView fx:id="tableView" prefHeight="600.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="0.0">
+
+            </TableView>
+        </children>
+    </VBox>
+    <AnchorPane layoutX="20.0" prefHeight="600.0" prefWidth="200">
+        <children>
+            <Button  fx:id="btnPrintAll" alignment="TOP_LEFT" layoutX="700.0" layoutY="20.0" mnemonicParsing="false" onAction="#rechnungenAusgebenController" text="Rechnungen drucken" />
+            <Button  fx:id="btnGetRow" alignment="TOP_LEFT" layoutX="700.0" layoutY="60.0" mnemonicParsing="false" onAction="#rechnungEinzeltAusgeben" prefHeight="25.0" prefWidth="129.0" text="Wert drucken" />
+        </children>
+
     </AnchorPane>
-  </children>
-</VBox>
+</children>
+</AnchorPane>
+

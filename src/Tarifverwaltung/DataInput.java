@@ -5,9 +5,6 @@ import javafx.beans.property.StringProperty;
 
 public class DataInput {
     public DataInput(){}
-
-
-
     private String nutzer_nr;
     private String vorname;
     private String nachname;
