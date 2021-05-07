@@ -42,8 +42,14 @@ public class Controller {
                 ((Node)(actionEvent.getSource())).getScene().getWindow().hide();
             }
             if (loginNutzer.readAuthentication() == true){
-                VBox pane = FXMLLoader.load(getClass().getResource("../sample/sample.fxml"));
-                vBox.getChildren().setAll(pane);
+                Parent root = FXMLLoader.load(getClass().getResource("../sample/sample.fxml"));
+
+                Stage primaryStage = new Stage();
+                primaryStage.setTitle("Abrechnungs- und Tarifverwaltungmodul");
+                primaryStage.setScene(new Scene(root,1000,600));
+                primaryStage.show();
+                primaryStage.setResizable(true);
+                ((Node)(actionEvent.getSource())).getScene().getWindow().hide();
             }
             else {
                 System.out.println("falscher Benutzer oder Passwort");
