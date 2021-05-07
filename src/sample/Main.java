@@ -1,6 +1,5 @@
 package sample;
 
-import Utils.Database.SqlController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,16 +8,18 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    public static final boolean debug = true;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
+        //Parent root = FXMLLoader.load(getClass().getResource("../UserAuth/UI_Login.fxml"));
         Parent root = FXMLLoader.load(getClass().getResource("../UserAuth/UI_Login.fxml"));
-        primaryStage.setTitle("Hello World");
+
+        primaryStage.setTitle("Abrechnungs- und Tarifverwaltungmodul");
         primaryStage.setScene(new Scene(root));
+        primaryStage.setResizable(false);
         primaryStage.show();
-        SqlController sql = new SqlController();
-
     }
-
 
     public static void main(String[] args) {
         launch(args);

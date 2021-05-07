@@ -8,6 +8,7 @@
   <component name="DBNavigator.Project.DataExportManager">
     <export-instructions>
       <create-header value="true" />
+      <friendly-headers value="false" />
       <quote-values-containing-separator value="true" />
       <quote-all-values value="false" />
       <value-separator value="" />
@@ -25,14 +26,15 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="79109696-7a9a-4dc4-abaa-0631c951d942">
-        <schema name="fs194" object-types="view, sequence, index, table, function" />
-        <schema name="information_schema" object-types="view, sequence, table, function" />
+        <schema name="fs194" object-types="constraint, sequence, view, dataset trigger, function, index, column, table" />
+        <schema name="pg_catalog" object-types="function" />
+        <schema name="public" object-types="function" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="79109696-7a9a-4dc4-abaa-0631c951d942">
-      <console name="Connection 1" type="STANDARD" schema="fs194" session="Main" />
+      <console name="Connection 1" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -40,6 +42,9 @@
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="79109696-7a9a-4dc4-abaa-0631c951d942" />
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="79109696-7a9a-4dc4-abaa-0631c951d942" dataset="fs194.nutzer" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -210,8 +215,6 @@
           <object-type name="TABLE" enabled="true" />
           <object-type name="VIEW" enabled="true" />
           <object-type name="MATERIALIZED VIEW" enabled="true" />
-          <object-type name="NESTED TABLE" enabled="false" />
-          <object-type name="COLUMN" enabled="false" />
           <object-type name="INDEX" enabled="true" />
           <object-type name="CONSTRAINT" enabled="true" />
           <object-type name="DATASET TRIGGER" enabled="true" />
@@ -222,8 +225,6 @@
           <object-type name="FUNCTION" enabled="true" />
           <object-type name="PACKAGE" enabled="true" />
           <object-type name="TYPE" enabled="true" />
-          <object-type name="TYPE ATTRIBUTE" enabled="false" />
-          <object-type name="ARGUMENT" enabled="false" />
           <object-type name="DIMENSION" enabled="false" />
           <object-type name="CLUSTER" enabled="false" />
           <object-type name="DBLINK" enabled="true" />

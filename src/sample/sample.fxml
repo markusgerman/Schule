@@ -1,69 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Router.DocumentRouterController">
-  <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="-Infinity" prefWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Router.DocumentRouterController">
          <children>
-            <BorderPane fx:id="mainPane" layoutX="13.0" layoutY="24.0" prefHeight="375.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <left>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#handleDashboardButton" text="Dashboard" />
-                        <Button mnemonicParsing="false" onAction="#handleTarifverwaltungButton" text="Tarifverwaltung" />
-                        <Button mnemonicParsing="false" onAction="#handleFakturaButton" text="Faktura" />
-                     </children>
-                  </VBox>
-               </left>
-            </BorderPane>
+            <VBox alignment="CENTER" fillWidth="false" prefHeight="600" prefWidth="130.0" spacing="5.0" style="-fx-background-color: #12232E;">
+               <children>
+                  <Button focusTraversable="false" onAction="#handleDashboardButton" prefHeight="120.0" prefWidth="130.0" style="-fx-background-color: #12232E;" text="Dashboard" textFill="aliceblue"/>
+                  <Button focusTraversable="false" onAction="#handleTarifverwaltungButton" prefHeight="120.0" prefWidth="130.0" style="-fx-background-color: #12232E;" text="Tarifverwaltung" textFill="aliceblue"/>
+                  <Button focusTraversable="false" onAction="#handleFakturaButton" prefHeight="120.0" prefWidth="130.0" style="-fx-background-color: #12232E;" text="Faktura" textFill="aliceblue" />
+               </children>
+            </VBox>
+            <AnchorPane layoutX="129.0" prefHeight="600.0" prefWidth="900">
+               <children>
+                  <BorderPane fx:id="mainPane" layoutX="90.0" layoutY="68.0" prefHeight="375.0" prefWidth="510.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children></AnchorPane>
          </children>
     </AnchorPane>
-  </children>
-</VBox>
