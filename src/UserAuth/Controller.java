@@ -31,7 +31,7 @@ public class Controller {
         loginNutzer.passwort = password.getText();
 
         try {
-            if(Main.debug){
+            if(false){
                 Parent root = FXMLLoader.load(getClass().getResource("../sample/sample.fxml"));
 
                 Stage primaryStage = new Stage();
